@@ -3,7 +3,7 @@ package com.testd.pojo;
 public class YkAdmin {
 
 
-    private Integer userId;
+    private Integer userId; 
     private String userName;
     private  String emali;
     private String passWord;

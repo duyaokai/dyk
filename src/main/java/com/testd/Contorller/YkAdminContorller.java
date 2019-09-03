@@ -18,12 +18,14 @@ import java.util.SimpleTimeZone;
 public class YkAdminContorller {
     @Autowired
     private YkAdminService ykAdminService;
-
+    //导航页面
     @RequestMapping(value="/index",method = RequestMethod.GET)
     public String login(){
         return "login/login_qian";
     }
 
+
+    //登录 以及修改 IP
     @RequestMapping("/login")
     public String ykAdminLogin(String userName, String password) {
 
@@ -41,11 +43,10 @@ public class YkAdminContorller {
                 String ip= String.valueOf(InetAddress.getLocalHost());
 
                 ykAdminService.updateYkAdmin(y.getUserId(),lastlogin,ip);
-                System.out.println();
                 return "home/home";
             } else {
 
-                return "login";
+                return "login/login_qian";
             }
         } catch (Exception e) {
             e.printStackTrace();
