@@ -41,6 +41,7 @@ public class YkAdminContorller {
                 String ip= String.valueOf(InetAddress.getLocalHost());
 
                 ykAdminService.updateYkAdmin(y.getUserId(),lastlogin,ip);
+                System.out.println();
                 return "home/home";
             } else {
 
