@@ -1,11 +1,13 @@
 package com.testd.service;
 
+import com.testd.pojo.DGytop;
 import com.testd.pojo.YkAdmin;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public interface YkAdminService {
 
@@ -15,4 +17,5 @@ public interface YkAdminService {
     //每次登录获取 （修改）当前时间和IP
     void updateYkAdmin(Integer userId, Date lastlogin, String ip);
 
+    List<DGytop> Select();
 }

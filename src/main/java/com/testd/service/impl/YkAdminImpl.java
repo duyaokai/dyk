@@ -1,6 +1,7 @@
 package com.testd.service.impl;
 
 import com.testd.mapper.YkAdminMaper;
+import com.testd.pojo.DGytop;
 import com.testd.pojo.YkAdmin;
 import com.testd.service.YkAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.InetAddress;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class YkAdminImpl implements YkAdminService {
@@ -24,6 +26,14 @@ public class YkAdminImpl implements YkAdminService {
     @Override
     public void updateYkAdmin(Integer userId, Date lastlogin, String ip) {
         ykAdminMaper.updateYkAdmin(userId,lastlogin,ip);
+    }
+
+
+    @Override
+    public List<DGytop> Select() {
+
+
+        return ykAdminMaper.Select();
     }
 
 

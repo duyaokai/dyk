@@ -1,16 +1,20 @@
 package com.testd.Contorller;
 
+import com.alibaba.fastjson.JSONArray;
+import com.testd.pojo.DGytop;
 import com.testd.pojo.YkAdmin;
 import com.testd.service.YkAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.alibaba.fastjson.JSONObject;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.SimpleTimeZone;
 
 
@@ -21,7 +25,7 @@ public class YkAdminContorller {
     //导航页面
     @RequestMapping(value="/index",method = RequestMethod.GET)
     public String login(){
-        return "login/login_qian";
+        return "login/login";
     }
 
 
@@ -53,6 +57,17 @@ public class YkAdminContorller {
         }
         return null;
     }
+//(value = "/tubiao",method = RequestMethod.GET)
+    @RequestMapping("tubiao")
+    @ResponseBody
+    public JSONObject TB(){
+
+        JSONObject json =new JSONObject();
+        json.put("data", ykAdminService.Select());
+        return json;
+    }
+
+
 
 }
 

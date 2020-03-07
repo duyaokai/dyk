@@ -1,11 +1,13 @@
 package com.testd.mapper;
 
+import com.testd.pojo.DGytop;
 import com.testd.pojo.YkAdmin;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.net.InetAddress;
 import java.util.Date;
+import java.util.List;
 
 @Repository
 @Mapper
@@ -13,8 +15,9 @@ public interface YkAdminMaper {
 
 
 
-
-    //登录验证  -------这里就不用--比较讨厌 --XMl 文件了直接用   注解方式   yk_admin
+    //  -------这里就不用- XMl 文件了直接用注解方式  别问我为啥 自己写任性
+    //登录验证
+    //  yk_admin
     @Select("select * from yk_admin where user_name=#{userName} and password=#{passWord}")
     @Results({
             @Result(id = true,column = "user_id",property = "userId"),
@@ -39,5 +42,16 @@ public interface YkAdminMaper {
     void updateYkAdmin(@Param("userId")Integer userId,
                        @Param("lastlogin") Date lastlogin,
                        @Param("ip") String ip);
+
+    @Select("select * from D_GYTOP")
+    @Results({
+            @Result(id = true,column = "ID",property = "id"),
+            @Result(column = "times",property = "times"),
+            @Result(column = "money",property = "money"),
+            @Result(column = "shangzhang",property = "shangzhang"),
+    })
+    List<DGytop> Select();
+
+
 
 }
